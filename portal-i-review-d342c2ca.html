@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 简明使用说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5f0e8;
+      font-family: "Noto Sans SC", "PingFang SC", system-ui, -apple-system, sans-serif;
+      color: #2e2b28;
+      line-height: 1.75;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 860px;
+      width: 100%;
+    }
+
+    /* 文章主体容器 */
+    .article {
+      background: #fcfaf6;
+      border-radius: 24px;
+      padding: 2.5rem 2.8rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.2s;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem 0.75rem;
+      }
+      .article {
+        padding: 1.8rem 1.2rem;
+        border-radius: 18px;
+      }
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      margin-bottom: 0.3rem;
+      color: #1f1c18;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #7a7066;
+      margin-bottom: 2rem;
+      border-left: 3px solid #c6b9ab;
+      padding-left: 1rem;
+      font-weight: 400;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 2rem 0 0.8rem 0;
+      color: #2f2a24;
+      border-bottom: 1px solid #ded6cc;
+      padding-bottom: 0.25rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin: 1.6rem 0 0.4rem 0;
+      color: #3c3530;
+    }
+
+    p {
+      margin: 0 0 1rem 0;
+      text-align: justify;
+    }
+
+    .intro {
+      margin-top: 0.5rem;
+    }
+
+    /* 引用 / 提示框风格 */
+    .note-box {
+      background: #f3efe8;
+      border-left: 5px solid #b7a99b;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 12px 12px 0;
+      font-size: 0.98rem;
+    }
+
+    .note-box strong {
+      display: inline-block;
+      margin-bottom: 0.2rem;
+      color: #3f3a34;
+    }
+
+    .tip-box {
+      background: #edede6;
+      border: 1px solid #d6cec2;
+      padding: 1.2rem 1.4rem;
+      margin: 1.5rem 0;
+      border-radius: 16px;
+    }
+
+    .tip-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.8rem 0 1.5rem 0;
+    }
+
+    .highlight-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .highlight-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #8f7f6e;
+      font-weight: 400;
+    }
+
+    /* 链接默认样式 */
+    a {
+      color: #415a7c;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: color 0.15s;
+    }
+
+    a:hover {
+      color: #1d2f47;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* 场景卡片 */
+    .scene-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0 1.8rem 0;
+    }
+
+    .scene-item {
+      background: #f5f1ea;
+      border-radius: 14px;
+      padding: 1rem 1.2rem;
+    }
+
+    .scene-item strong {
+      display: block;
+      font-weight: 500;
+      color: #38322b;
+      margin-bottom: 0.15rem;
+    }
+
+    .scene-item span {
+      font-size: 0.92rem;
+      color: #5d554c;
+    }
+
+    @media (max-width: 500px) {
+      .scene-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .faq-item {
+      margin: 1rem 0;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #38322b;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-a {
+      color: #5b534a;
+      font-size: 0.97rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd6cc;
+      margin: 2rem 0 1.2rem;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: #8c8277;
+      text-align: center;
+      margin-top: 1rem;
+      padding: 0.5rem 0 0;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="article">
+
+    <h1>爱游戏 · 简明使用说明</h1>
+    <div class="subhead">从访问方式到场景适配，一篇了解核心要点</div>
+
+    <p class="intro">
+      <a href="https://portal-i-game.com.cn">爱游戏</a> 是面向个人玩家与轻游戏社群的工具式服务站点，强调在合理配置下获得稳定体验。以下从产品概况、关键特性、使用场景、注意事项四个层面展开，帮助你快速判断是否匹配自身需求。
+    </p>
+
+    <!-- 摘要 / 产品定位 -->
+    <h2>产品定位</h2>
+    <p>爱游戏提供统一的入口与轻量交互环境，不内置修改、不打包资源，而是着重优化访问链路与状态提示。适合希望减少手动配置、快速接入通用游戏服务的用户。</p>
+
+    <!-- 亮点（特点） -->
+    <h2>功能亮点</h2>
+    <ul class="highlight-list">
+      <li><strong>统一入口</strong> —— 通过 <a href="https://portal-i-game.com.cn">爱游戏</a> 页面即可进入服务，无需记忆多个地址。</li>
+      <li><strong>状态感知</strong> —— 界面中会显示当前可用性、负载提示及常见问题指引，减少无响应等待。</li>
+      <li><strong>低开销前端</strong> —— 页面结构克制，不加载无关脚本，适合配置一般的设备或网络。</li>
+      <li><strong>反馈路径清晰</strong> —— 内置简要回执通道，便于提交异常或查看公告。</li>
+    </ul>
+
+    <div class="note-box">
+      <strong>🔍 使用前提</strong><br>
+      建议在访问前确认本地网络可正常连接目标域名，并关闭可能干扰代理协议的插件或防火墙规则。若首次进入遇到白屏或加载超时，多与本地环境配置有关。
+    </div>
+
+    <!-- 使用建议（场景化） -->
+    <h2>典型使用场景</h2>
+    <div class="scene-grid">
+      <div class="scene-item">
+        <strong>日常快速登录</strong>
+        <span>将 <a href="https://portal-i-game.com.cn">爱游戏</a> 加入书签，每日首次打开即可进入状态页，适合通勤或碎片时间使用。</span>
+      </div>
+      <div class="scene-item">
+        <strong>多设备同步参考</strong>
+        <span>在 PC 与移动端共用同一入口，页面响应式布局可保持基本操作一致性。</span>
+      </div>
+      <div class="scene-item">
+        <strong>初次接触引导</strong>
+        <span>向朋友介绍时，直接分享根域名即可，对方可在页面内了解大致功能。</span>
+      </div>
+      <div class="scene-item">
+        <strong>状态检查</strong>
+        <span>遇到连接波动时，先通过 <a href="https://portal-i-game.com.cn">爱游戏</a> 页面确认当前服务端提示，再决定调整方式。</span>
+      </div>
+    </div>
+
+    <!-- 访问提醒（可信但克制） -->
+    <h2>访问提醒</h2>
+    <div class="tip-box">
+      <p><strong>网络环境：</strong> 爱游戏不提供 VPN 或翻墙功能，所依赖的通信协议需与本地运营商兼容。如遇地区性阻断，请更换普通热点或联系网络服务商咨询。</p>
+      <p><strong>账户安全：</strong> 官方页面不会索取密码或短信验证码。任何要求额外提供个人敏感信息的弹窗均非爱游戏官方行为，请勿输入。</p>
+      <p><strong>版本匹配：</strong> 部分功能依赖现代浏览器（Chrome 90+ / Edge 90+ / Firefox 90+），使用 IE 或过低版本内核可能出现布局异常。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <h2>常见疑问（摘要）</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q：爱游戏是否需要注册账号？</div>
+      <div class="faq-a">通常不需要独立注册。页面多数功能通过临时令牌或授权跳转实现，具体以页面内提示为准。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q：页面打开后显示“正在建立连接”长时间无响应怎么办？</div>
+      <div class="faq-a">先检查本地网络是否正常；若使用复杂代理规则，可暂时关闭或为 <code>portal-i-game.com.cn</code> 添加直连规则。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q：爱游戏有手机客户端吗？</div>
+      <div class="faq-a">目前仅提供 web 页面，可在移动浏览器中添加到主屏幕获得近似应用体验。</div>
+    </div>
+
+    <hr>
+    <p style="font-size:0.95rem; margin-bottom:0;">
+      更多说明以页面实际展示为准。如果你已经了解基础要点，可直接通过 
+      <a href="https://portal-i-game.com.cn">爱游戏</a> 进入工作区。遇到异常时，建议先查看页面中的置顶公告或简洁帮助。
+    </p>
+
+    <div class="footer-note">
+      — 简明产品说明 · 内容仅供参考 —
+    </div>
+  </div>
+</div>
+</body>
+</html>
